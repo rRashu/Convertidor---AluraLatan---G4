@@ -1,9 +1,7 @@
 package Convertidor_Alura;
-
-import javax.swing.*;
-
 public class Main {
     public static void main (String[] args) {
-        JOptionPane.showInputDialog(null,"Convertidor","Alura curso", 1);
+        Realizado_Por v1 =new Realizado_Por();
+        v1.frmConvertidorAluralatan.setVisible(true);
     }
 }
