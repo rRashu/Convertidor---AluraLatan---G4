@@ -1,7 +1,7 @@
 package Convertidor_Alura;
 public class Main {
     public static void main (String[] args) {
-        Realizado_Por v1 =new Realizado_Por();
+        Convertidor_Moneda v1 =new Convertidor_Moneda();
         v1.frmConvertidorAluralatan.setVisible(true);
     }
 }

@@ -12,6 +12,8 @@ public class Principal {
 	ButtonGroup grupo =new ButtonGroup();
 	int xOffset,yOffset;
 	Realizado_Por realizado = new Realizado_Por();
+	
+	
 	public Principal() {
 		initialize();
 		
@@ -22,14 +24,13 @@ public class Principal {
 	 */
 	void initialize() {
 		frmConvertidorAluralatan = new JFrame();
-		//frmConvertidorAluralatan.setTitle("Convertidor - AluraLatan");
+		frmConvertidorAluralatan.setTitle("Creditos - AluraLatan");
 		frmConvertidorAluralatan.setBounds(100, 100, 315, 181);
 		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmConvertidorAluralatan.getContentPane().setLayout(null);
 		frmConvertidorAluralatan.setResizable(false);
 		frmConvertidorAluralatan.setLocationRelativeTo(null);  //centra la ventana
 		frmConvertidorAluralatan.setUndecorated(true);         //efecto de trasparencia unido con el color de fondo
-		//frmConvertidorAluralatan.setOpacity(0.5f);
 		frmConvertidorAluralatan.setBackground(new Color(198,190,238,230)); // color de fondo de la ventana
 		
 		JLabel lblSalir = new JLabel("");

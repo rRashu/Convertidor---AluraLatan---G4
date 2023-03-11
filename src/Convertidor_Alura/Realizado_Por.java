@@ -25,14 +25,13 @@ public class Realizado_Por {
 	 */
 	void initialize() {
 		frmConvertidorAluralatan = new JFrame();
-		// frmConvertidorAluralatan.setTitle("Convertidor - AluraLatan");
+		frmConvertidorAluralatan.setTitle("Convertidor - AluraLatan");
 		frmConvertidorAluralatan.setBounds(100, 100, 315, 354);
 		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmConvertidorAluralatan.getContentPane().setLayout(null);
 		frmConvertidorAluralatan.setResizable(false);
 		frmConvertidorAluralatan.setLocationRelativeTo(null); // centra la ventana
 		frmConvertidorAluralatan.setUndecorated(true); // efecto de trasparencia unido con el color de fondo
-		// frmConvertidorAluralatan.setOpacity(0.5f);
 		frmConvertidorAluralatan.setBackground(new Color(198, 190, 238, 230)); // color de fondo de la ventana
 
 		JLabel lblSalir = new JLabel("");
@@ -132,6 +131,5 @@ public class Realizado_Por {
 				imgmail.getImage().getScaledInstance(lblgmail.getWidth(), lblgmail.getHeight(), Image.SCALE_DEFAULT));
 		lblgmail.setIcon(iconogmail);
 		frmConvertidorAluralatan.getContentPane().add(lblgmail);
-
 	}
 }
