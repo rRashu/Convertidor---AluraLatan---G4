@@ -131,5 +131,11 @@ public class Realizado_Por {
 				imgmail.getImage().getScaledInstance(lblgmail.getWidth(), lblgmail.getHeight(), Image.SCALE_DEFAULT));
 		lblgmail.setIcon(iconogmail);
 		frmConvertidorAluralatan.getContentPane().add(lblgmail);
+		
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("One G4");
+		lblNewLabel_2_1_1_1.setForeground(new Color(0, 128, 128));
+		lblNewLabel_2_1_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
+		lblNewLabel_2_1_1_1.setBounds(236, 324, 79, 30);
+		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1_1);
 	}
 }
