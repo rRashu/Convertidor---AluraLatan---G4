@@ -1,25 +1,25 @@
 package Convertidor_Alura;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Objects;
 
+
 public class Convertidor_Moneda {
 
 	JFrame frmConvertidorAluralatan;
 	int xOffset, yOffset;
 	Realizado_Por realizado = new Realizado_Por();
-	
+
 	public Convertidor_Moneda() {
 		initialize();
+
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	void initialize() {
 		frmConvertidorAluralatan = new JFrame();
 		frmConvertidorAluralatan.setTitle("Convertidor de Monedas - AluraLatan");
@@ -27,9 +27,9 @@ public class Convertidor_Moneda {
 		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmConvertidorAluralatan.getContentPane().setLayout(null);
 		frmConvertidorAluralatan.setResizable(false);
-		frmConvertidorAluralatan.setLocationRelativeTo(null); // centra la ventana
-		frmConvertidorAluralatan.setUndecorated(true); // efecto de trasparencia unido con el color de fondo
-		frmConvertidorAluralatan.setBackground(new Color(198, 190, 238, 230)); // color de fondo de la ventana
+		frmConvertidorAluralatan.setLocationRelativeTo(null); 						// centra la ventana
+		frmConvertidorAluralatan.setUndecorated(true); 								// efecto de trasparencia unido con el color de fondo
+		frmConvertidorAluralatan.setBackground(new Color(198, 190, 238, 230)); 		// color de fondo de la ventana
 
 		JLabel lblSalir = new JLabel("");
 		lblSalir.setToolTipText("Volver");
@@ -73,10 +73,6 @@ public class Convertidor_Moneda {
 		lblNewLabel_2_1_1.setBounds(153, 67, 372, 56);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1);
 
-		JLabel lblMoneda1 = new JLabel("");
-		lblMoneda1.setBounds(62, 143, 46, 41);
-		frmConvertidorAluralatan.getContentPane().add(lblMoneda1);
-
 		JComboBox<String> comboBox = new JComboBox<>();
 		comboBox.setBackground(new Color(50, 205, 50));
 		comboBox.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
@@ -88,6 +84,7 @@ public class Convertidor_Moneda {
 
 		JLabel lblMoneda2 = new JLabel("");
 		lblMoneda2.setBounds(335, 143, 46, 41);
+		lblMoneda2.setIcon(setIcono("Imagenes/Dolar.png"));
 		frmConvertidorAluralatan.getContentPane().add(lblMoneda2);
 
 		JComboBox<String> comboBox2 = new JComboBox<>();
@@ -104,7 +101,7 @@ public class Convertidor_Moneda {
 		textmoneda1.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		textmoneda1.setBounds(129, 182, 145, 34);
 		textmoneda1.setColumns(10);
-		textmoneda1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		textmoneda1.setBorder(new LineBorder(new Color(30, 33, 61, 100), 5));
 		textmoneda1.setOpaque(false);
 		textmoneda1.setText("0.00");
 		frmConvertidorAluralatan.getContentPane().add(textmoneda1);
@@ -114,24 +111,40 @@ public class Convertidor_Moneda {
 		textmoneda2.setForeground(Color.BLUE);
 		textmoneda2.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		textmoneda2.setBounds(391, 182, 145, 34);
-		textmoneda2.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		textmoneda2.setBorder(new LineBorder(new Color(30, 33, 61, 100), 5));
 		textmoneda2.setOpaque(false);
 		textmoneda2.setText("0.00");
 		frmConvertidorAluralatan.getContentPane().add(textmoneda2);
-		
+
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("One G4");
 		lblNewLabel_2_1_1_1.setForeground(new Color(0, 128, 128));
 		lblNewLabel_2_1_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
 		lblNewLabel_2_1_1_1.setBounds(543, 259, 79, 30);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1_1);
-		
+
+		JLabel lblMoneda1 = new JLabel("");
+		lblMoneda1.setBounds(62, 143, 46, 41);
+		lblMoneda1.setIcon(setIcono("Imagenes/Libra.png"));
+		frmConvertidorAluralatan.getContentPane().add(lblMoneda1);
 
 		// eventos
-		
+
 		textmoneda1.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				textmoneda1.setText("");
+				if ((textmoneda1.getText().equals("0.00")) || (textmoneda1.getText().isEmpty())) {
+					textmoneda1.setText("");
+				}
+
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (textmoneda1.getText().isEmpty()) {
+					textmoneda1.setText("0.00");
+				}
+				textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
+						(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(), Double.parseDouble(textmoneda1.getText())));
 			}
 		});
 
@@ -146,18 +159,30 @@ public class Convertidor_Moneda {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				textmoneda2.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
-						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(), Double.parseDouble(textmoneda1.getText())));
+				if (!textmoneda1.getText().isEmpty())
+					textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
+							(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(), Double.parseDouble(textmoneda1.getText())));
 			}
 		});
 
 		textmoneda2.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				textmoneda2.setText("");
+				if ((textmoneda2.getText().equals("0.00")) || (textmoneda2.getText().isEmpty())) {
+					textmoneda2.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (textmoneda2.getText().isEmpty()) {
+					textmoneda2.setText("0.00");
+				}
+				textmoneda1.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
+						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(), Double.parseDouble(textmoneda1.getText())));
 			}
 		});
-		
+
 		textmoneda2.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -169,8 +194,9 @@ public class Convertidor_Moneda {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
-						Objects.requireNonNull(comboBox.getSelectedItem()).toString(), Double.parseDouble(textmoneda2.getText())));
+				if (!textmoneda2.getText().isEmpty())
+					textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
+							Objects.requireNonNull(comboBox.getSelectedItem()).toString(), Double.parseDouble(textmoneda2.getText())));
 			}
 		});
 
@@ -296,19 +322,21 @@ public class Convertidor_Moneda {
 	public Icon setIcono(String ruta) {
 		ImageIcon im = new ImageIcon(ruta);
 		return new ImageIcon(im.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-
 	}
 
 	public String calculo(String cmb1, String cmb2, double monto) {
-		HashMap<String, Double> tasas = new HashMap<>();
-		tasas.put("Peso Colombiano", 4719.21);
-		tasas.put("Dolar", 1.0);
-		tasas.put("Euro", 0.94);
-		tasas.put("Libra Esterlina", 0.83);
-		tasas.put("Yen Japones", 134.98);
-		tasas.put("Won Surcoreano", 1320.24);
-		DecimalFormat rf = new DecimalFormat("0.00");
-		double resultado = monto * (tasas.get(cmb2) / tasas.get(cmb1));
-		return rf.format(resultado);
+		if (!cmb1.isEmpty() | !cmb1.isEmpty()) {
+			HashMap<String, Double> tasas = new HashMap<>();
+			tasas.put("Peso Colombiano", 4719.21);
+			tasas.put("Dolar", 1.0);
+			tasas.put("Euro", 0.94);
+			tasas.put("Libra Esterlina", 0.83);
+			tasas.put("Yen Japones", 134.98);
+			tasas.put("Won Surcoreano", 1320.24);
+			DecimalFormat rf = new DecimalFormat("0.00");
+			double resultado = monto * (tasas.get(cmb2) / tasas.get(cmb1));
+			return rf.format(resultado);
+		}
+		return null;
 	}
 }
