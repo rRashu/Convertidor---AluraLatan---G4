@@ -9,20 +9,20 @@ import java.util.HashMap;
 import java.util.Objects;
 
 
-public class Convertidor_Moneda {
+public class Convertidor_Masa {
 
 	JFrame frmConvertidorAluralatan;
 	int xOffset, yOffset;
 	Realizado_Por realizado = new Realizado_Por();
-    
-	public Convertidor_Moneda() {
+	String[] unidad = {"Microgramo","Gramo","Onza","Libra","Kilogramo","Tonelada"};
+	public Convertidor_Masa() {
 		
 		initialize();
 	}
 
 	void initialize() {
 		frmConvertidorAluralatan = new JFrame();
-		frmConvertidorAluralatan.setTitle("Convertidor de Monedas - AluraLatan");
+		frmConvertidorAluralatan.setTitle("Convertidor de Masa - AluraLatan");
 		frmConvertidorAluralatan.setBounds(100, 100, 622, 300);
 		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmConvertidorAluralatan.getContentPane().setLayout(null);
@@ -67,7 +67,7 @@ public class Convertidor_Moneda {
 		lblCreditos.setIcon(iconodatos);
 		frmConvertidorAluralatan.getContentPane().add(lblCreditos);
 
-		JLabel lblNewLabel_2_1_1 = new JLabel("Convertidor De Monedas");
+		JLabel lblNewLabel_2_1_1 = new JLabel("Convertidor De Masa");
 		lblNewLabel_2_1_1.setForeground(new Color(0, 128, 128));
 		lblNewLabel_2_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
 		lblNewLabel_2_1_1.setBounds(153, 67, 372, 56);
@@ -76,22 +76,20 @@ public class Convertidor_Moneda {
 		JComboBox<String> comboBox = new JComboBox<>();
 		comboBox.setBackground(new Color(50, 205, 50));
 		comboBox.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		comboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Peso Colombiano", "Dolar", "Euro",
-				"Libra Esterlina", "Yen Japones", "Won Surcoreano" }));
+		comboBox.setModel(new DefaultComboBoxModel<>(unidad));
 		comboBox.setBounds(119, 151, 155, 20);
 		comboBox.setSelectedItem(comboBox.getItemAt(3));
 		frmConvertidorAluralatan.getContentPane().add(comboBox);
 
 		JLabel lblMoneda2 = new JLabel("");
-		lblMoneda2.setBounds(335, 143, 46, 41);
-		lblMoneda2.setIcon(setIcono("Imagenes/Dolar.png"));
+		lblMoneda2.setBounds(324, 128, 60, 60);
+		lblMoneda2.setIcon(setIcono("Imagenes/Gramo.png"));
 		frmConvertidorAluralatan.getContentPane().add(lblMoneda2);
 
 		JComboBox<String> comboBox2 = new JComboBox<>();
 		comboBox2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		comboBox2.setBackground(new Color(50, 205, 50));
-		comboBox2.setModel(new DefaultComboBoxModel<>(new String[] { "Peso Colombiano", "Dolar", "Euro",
-				"Libra Esterlina", "Yen Japones", "Won Surcoreano" }));
+		comboBox2.setModel(new DefaultComboBoxModel<>(unidad));
 		comboBox2.setBounds(392, 151, 155, 20);
 		comboBox2.setSelectedItem(comboBox.getItemAt(1));
 		frmConvertidorAluralatan.getContentPane().add(comboBox2);
@@ -103,7 +101,7 @@ public class Convertidor_Moneda {
 		textmoneda1.setColumns(10);
 		textmoneda1.setBorder(new LineBorder(new Color(30, 33, 61, 100), 5));
 		textmoneda1.setOpaque(false);
-		textmoneda1.setText("0.00");
+		textmoneda1.setText("0");
 		frmConvertidorAluralatan.getContentPane().add(textmoneda1);
 
 		JTextField textmoneda2 = new JTextField();
@@ -113,7 +111,7 @@ public class Convertidor_Moneda {
 		textmoneda2.setBounds(391, 182, 145, 34);
 		textmoneda2.setBorder(new LineBorder(new Color(30, 33, 61, 100), 5));
 		textmoneda2.setOpaque(false);
-		textmoneda2.setText("0.00");
+		textmoneda2.setText("0");
 		frmConvertidorAluralatan.getContentPane().add(textmoneda2);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("One G4");
@@ -123,8 +121,8 @@ public class Convertidor_Moneda {
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1_1);
 
 		JLabel lblMoneda1 = new JLabel("");
-		lblMoneda1.setBounds(62, 143, 46, 41);
-		lblMoneda1.setIcon(setIcono("Imagenes/Libra.png"));
+		lblMoneda1.setBounds(48, 128, 60, 60);
+		lblMoneda1.setIcon(setIcono("Imagenes/Libra-masa.png"));
 		frmConvertidorAluralatan.getContentPane().add(lblMoneda1);
 
 		// eventos
@@ -132,7 +130,7 @@ public class Convertidor_Moneda {
 		textmoneda1.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if ((textmoneda1.getText().equals("0.00")) || (textmoneda1.getText().isEmpty())) {
+				if ((textmoneda1.getText().equals("0")) || (textmoneda1.getText().isEmpty())) {
 					textmoneda1.setText("");
 				}
 
@@ -141,7 +139,7 @@ public class Convertidor_Moneda {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (textmoneda1.getText().isEmpty()) {
-					textmoneda1.setText("0.00");
+					textmoneda1.setText("0");
 				}
 				textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
 						(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(), Double.parseDouble(textmoneda1.getText())));
@@ -168,7 +166,7 @@ public class Convertidor_Moneda {
 		textmoneda2.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if ((textmoneda2.getText().equals("0.00")) || (textmoneda2.getText().isEmpty())) {
+				if ((textmoneda2.getText().equals("0")) || (textmoneda2.getText().isEmpty())) {
 					textmoneda2.setText("");
 				}
 			}
@@ -176,7 +174,7 @@ public class Convertidor_Moneda {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (textmoneda2.getText().isEmpty()) {
-					textmoneda2.setText("0.00");
+					textmoneda2.setText("0");
 				}
 				textmoneda1.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
 						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(), Double.parseDouble(textmoneda1.getText())));
@@ -251,17 +249,17 @@ public class Convertidor_Moneda {
 
 		comboBox2.addItemListener(e -> {
 			if (comboBox2.getSelectedIndex() == 0) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Peso.png"));
+				lblMoneda2.setIcon(setIcono("Imagenes/Microgramo.png"));
 			} else if (comboBox2.getSelectedIndex() == 1) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Dolar.png"));
+				lblMoneda2.setIcon(setIcono("Imagenes/Gramo.png"));
 			} else if (comboBox2.getSelectedIndex() == 2) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Euro.png"));
+				lblMoneda2.setIcon(setIcono("Imagenes/Onza.png"));
 			} else if (comboBox2.getSelectedIndex() == 3) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Libra.png"));
+				lblMoneda2.setIcon(setIcono("Imagenes/Libra-masa.png"));
 			} else if (comboBox2.getSelectedIndex() == 4) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Yen.png"));
+				lblMoneda2.setIcon(setIcono("Imagenes/Kilogramo.png"));
 			} else if (comboBox2.getSelectedIndex() == 5) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Won.png"));
+				lblMoneda2.setIcon(setIcono("Imagenes/Tonelada.png"));
 			}
 		});
 
@@ -291,17 +289,17 @@ public class Convertidor_Moneda {
 		comboBox.addItemListener(e -> {
 
 			if (comboBox.getSelectedIndex() == 0) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Peso.png"));
+				lblMoneda1.setIcon(setIcono("Imagenes/Microgramo.png"));
 			} else if (comboBox.getSelectedIndex() == 1) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Dolar.png"));
+				lblMoneda1.setIcon(setIcono("Imagenes/Gramo.png"));
 			} else if (comboBox.getSelectedIndex() == 2) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Euro.png"));
+				lblMoneda1.setIcon(setIcono("Imagenes/Onza.png"));
 			} else if (comboBox.getSelectedIndex() == 3) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Libra.png"));
+				lblMoneda1.setIcon(setIcono("Imagenes/Libra-masa.png"));
 			} else if (comboBox.getSelectedIndex() == 4) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Yen.png"));
+				lblMoneda1.setIcon(setIcono("Imagenes/Kilogramo.png"));
 			} else if (comboBox.getSelectedIndex() == 5) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Won.png"));
+				lblMoneda1.setIcon(setIcono("Imagenes/Tonelada.png"));
 			}
 		});
 
@@ -327,13 +325,13 @@ public class Convertidor_Moneda {
 	public String calculo(String cmb1, String cmb2, double monto) {
 		if (!cmb1.isEmpty() | !cmb1.isEmpty()) {
 			HashMap<String, Double> tasas = new HashMap<>();
-			tasas.put("Peso Colombiano", 4719.21);
-			tasas.put("Dolar", 1.0);
-			tasas.put("Euro", 0.94);
-			tasas.put("Libra Esterlina", 0.83);
-			tasas.put("Yen Japones", 134.98);
-			tasas.put("Won Surcoreano", 1320.24);
-			DecimalFormat rf = new DecimalFormat("0.00");
+			tasas.put("Microgramo", 1000000.0);
+			tasas.put("Gramo", 1.0);
+			tasas.put("Onza", 0.03527396);
+			tasas.put("Libra", 0.00220462);
+			tasas.put("Kilogramo", 0.001);
+			tasas.put("Tonelada", 0.000001);
+			DecimalFormat rf = new DecimalFormat("0.00000");
 			double resultado = monto * (tasas.get(cmb2) / tasas.get(cmb1));
 			return rf.format(resultado);
 		}

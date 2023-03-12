@@ -9,10 +9,10 @@ import java.awt.event.MouseAdapter;
 public class Principal {
 
 	JFrame frmConvertidorAluralatan;
-	ButtonGroup grupo =new ButtonGroup();
 	int xOffset,yOffset;
 	Realizado_Por realizado = new Realizado_Por();
-	
+	Convertidor_Moneda moneda = new Convertidor_Moneda();
+	Convertidor_Masa masa = new Convertidor_Masa();
 	
 	public Principal() {
 		initialize();
@@ -63,23 +63,6 @@ public class Principal {
 		lblSalir.setIcon(icono);
 		frmConvertidorAluralatan.getContentPane().add(lblSalir);
 		
-		JRadioButton monedabtn = new JRadioButton("");
-		monedabtn.setSelected(true);
-		monedabtn.setBounds(61, 74, 21, 23);
-		frmConvertidorAluralatan.getContentPane().add(monedabtn);
-		monedabtn.setOpaque(false);
-		grupo.add(monedabtn);
-
-		JRadioButton longitudbtn = new JRadioButton("");
-		longitudbtn.setBounds(191, 74, 21, 23);
-		frmConvertidorAluralatan.getContentPane().add(longitudbtn);
-		longitudbtn.setOpaque(false);
-
-		JButton btnContinuar = new JButton("Continuar");
-		btnContinuar.setFont(new Font("Calibri", Font.BOLD, 13));
-		btnContinuar.setBounds(107, 147, 89, 34);
-		frmConvertidorAluralatan.getContentPane().add(btnContinuar);
-		
 		JLabel lblmover = new JLabel("");
 		lblmover.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
@@ -103,19 +86,71 @@ public class Principal {
 			}
 		});
 		lblmover.setForeground(new Color(0, 0, 255));
-		lblmover.setBounds(7, 0, 261, 56);
+		lblmover.setBounds(0, 0, 261, 56);
 		frmConvertidorAluralatan.getContentPane().add(lblmover);
 		
-		JLabel lblNewLabel = new JLabel("Monedas");
-		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 13));
-		lblNewLabel.setBounds(48, 104, 60, 20);
-		frmConvertidorAluralatan.getContentPane().add(lblNewLabel);
+		JLabel lblMoneda = new JLabel("Monedas");
+		lblMoneda.setToolTipText("Moneda");
+		lblMoneda.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				ImageIcon imm = new ImageIcon("Imagenes/Moneda-color.png");
+				Icon iconom = new ImageIcon(imm.getImage().getScaledInstance(lblMoneda.getWidth(),
+						lblMoneda.getHeight(), Image.SCALE_DEFAULT));
+				lblMoneda.setIcon(iconom);
+				
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				ImageIcon im = new ImageIcon("Imagenes/Moneda.png");
+				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblMoneda.getWidth(),
+						lblMoneda.getHeight(), Image.SCALE_DEFAULT));
+				lblMoneda.setIcon(icono);
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frmConvertidorAluralatan.setVisible(false);
+				moneda.frmConvertidorAluralatan.setVisible(true);
+			}
+		});
+		lblMoneda.setFont(new Font("Calibri", Font.BOLD, 13));
+		lblMoneda.setBounds(74, 67, 60, 60);
+		ImageIcon imm = new ImageIcon("Imagenes/Moneda-color.png");
+		Icon iconom = new ImageIcon(imm.getImage().getScaledInstance(lblMoneda.getWidth(),
+				lblMoneda.getHeight(), Image.SCALE_DEFAULT));
+		lblMoneda.setIcon(iconom);
+		frmConvertidorAluralatan.getContentPane().add(lblMoneda);
 		
-		JLabel lblNewLabel_1 = new JLabel("Longitud");
-		lblNewLabel_1.setFont(new Font("Calibri", Font.BOLD, 13));
-		lblNewLabel_1.setBounds(191, 107, 60, 14);
-		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_1);
-		grupo.add(longitudbtn);
+		JLabel lblMasa = new JLabel("Masa");
+		lblMasa.setToolTipText("Masa");
+		lblMasa.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				ImageIcon masaico = new ImageIcon("Imagenes/Masa-color.png");
+				Icon iconomasa = new ImageIcon(masaico.getImage().getScaledInstance(lblMasa.getWidth(),
+						lblMasa.getHeight(), Image.SCALE_DEFAULT));
+				lblMasa.setIcon(iconomasa);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				ImageIcon im = new ImageIcon("Imagenes/Masa.png");
+				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblMasa.getWidth(),
+						lblMasa.getHeight(), Image.SCALE_DEFAULT));
+				lblMasa.setIcon(icono);
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frmConvertidorAluralatan.setVisible(false);
+				masa.frmConvertidorAluralatan.setVisible(true);
+			}
+		});
+		lblMasa.setFont(new Font("Calibri", Font.BOLD, 13));
+		lblMasa.setBounds(205, 67, 60, 60);
+		ImageIcon masaico = new ImageIcon("Imagenes/Masa-color.png");
+		Icon iconomasa = new ImageIcon(masaico.getImage().getScaledInstance(lblMasa.getWidth(),
+				lblMasa.getHeight(), Image.SCALE_DEFAULT));
+		lblMasa.setIcon(iconomasa);
+		frmConvertidorAluralatan.getContentPane().add(lblMasa);
 		
 		JLabel lblNewLabel_2 = new JLabel("Alura");
 		lblNewLabel_2.setForeground(new Color(0, 128, 128));
@@ -159,5 +194,10 @@ public class Principal {
 		lblCreditos.setIcon(iconodatos);
 		frmConvertidorAluralatan.getContentPane().add(lblCreditos);
 		
+		JLabel lblNewLabel_2_1_1 = new JLabel("Convertidor");
+		lblNewLabel_2_1_1.setForeground(new Color(0, 128, 128));
+		lblNewLabel_2_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
+		lblNewLabel_2_1_1.setBounds(136, 147, 108, 30);
+		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1);
 	}
 }
