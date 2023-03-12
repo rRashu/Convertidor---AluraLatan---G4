@@ -23,4 +23,4 @@ Realizado 100% en java
 
 *[Conclusión](#conclusión)
 
-Este pequeño programa fue realizado 100% en java, sin utilizar librerias externas ni apis
+Este pequeño programa fue realizado 100% en java utilizando el ide de IntelliJ IDEA Community Edition 2022.3.2
