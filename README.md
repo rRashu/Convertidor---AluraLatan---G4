@@ -21,7 +21,7 @@ El conversor es un sistema basico, en el cual al inicio se nos muestra una venta
 
 Para el proceso de validacion simplemente 
 
-```java
+```python
 if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
 						| (validar == '.' && textmoneda2.getText().contains(".")) | (validar == ',')
 						| (validar == '.' && textmoneda2.getText().length() == 0)) {
@@ -29,11 +29,19 @@ if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
 				}
 ```
 
+
 * Limitamos el tamaño de caracteres que se ingresan.
 * Solo se puede usar numeros.
 * Solo se puede usar un punto en cada campo.
+```python
+ - [✔] 123.456
+ - [X] 12.34.56
+```
 * Ningun campo puede iniciar con un punto
-
+```python
+ - [✔] 123.456
+ - [X] .123456
+```
 
 ❌ `Fallas que aun no logro solucionar` 
 ---
