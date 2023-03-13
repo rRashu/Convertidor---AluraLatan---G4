@@ -8,15 +8,15 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Objects;
 
-
 public class Convertidor_Masa {
 
 	JFrame frmConvertidorAluralatan;
 	int xOffset, yOffset;
 	Realizado_Por realizado = new Realizado_Por();
-	String[] unidad = {"Microgramo","Gramo","Onza","Libra","Kilogramo","Tonelada"};
+	String[] unidad = { "Microgramo", "Gramo", "Onza", "Libra", "Kilogramo", "Tonelada" };
+
 	public Convertidor_Masa() {
-		
+
 		initialize();
 	}
 
@@ -27,9 +27,9 @@ public class Convertidor_Masa {
 		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmConvertidorAluralatan.getContentPane().setLayout(null);
 		frmConvertidorAluralatan.setResizable(false);
-		frmConvertidorAluralatan.setLocationRelativeTo(null); 						// centra la ventana
-		frmConvertidorAluralatan.setUndecorated(true); 								// efecto de trasparencia unido con el color de fondo
-		frmConvertidorAluralatan.setBackground(new Color(198, 190, 238, 230)); 		// color de fondo de la ventana
+		frmConvertidorAluralatan.setLocationRelativeTo(null); // centra la ventana
+		frmConvertidorAluralatan.setUndecorated(true); // efecto de trasparencia unido con el color de fondo
+		frmConvertidorAluralatan.setBackground(new Color(198, 190, 238, 230)); // color de fondo de la ventana
 
 		JLabel lblSalir = new JLabel("");
 		lblSalir.setToolTipText("Volver");
@@ -142,7 +142,8 @@ public class Convertidor_Masa {
 					textmoneda1.setText("0");
 				}
 				textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
-						(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(), Double.parseDouble(textmoneda1.getText())));
+						(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(),
+						Double.parseDouble(textmoneda1.getText())));
 			}
 		});
 
@@ -150,7 +151,9 @@ public class Convertidor_Masa {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char validar = e.getKeyChar();
-				if ((textmoneda1.getText().length() == 10) | Character.isLetter(validar)) {
+				if ((textmoneda1.getText().length() == 10) | Character.isLetter(validar)
+						| (validar == '.' && textmoneda1.getText().contains(".")) | (validar == ',')
+						| (validar == '.' && textmoneda1.getText().length() == 0)) {
 					e.consume();
 				}
 			}
@@ -159,7 +162,8 @@ public class Convertidor_Masa {
 			public void keyReleased(KeyEvent e) {
 				if (!textmoneda1.getText().isEmpty())
 					textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
-							(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(), Double.parseDouble(textmoneda1.getText())));
+							(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(),
+							Double.parseDouble(textmoneda1.getText())));
 			}
 		});
 
@@ -177,7 +181,8 @@ public class Convertidor_Masa {
 					textmoneda2.setText("0");
 				}
 				textmoneda1.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
-						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(), Double.parseDouble(textmoneda1.getText())));
+						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
+						Double.parseDouble(textmoneda1.getText())));
 			}
 		});
 
@@ -185,16 +190,22 @@ public class Convertidor_Masa {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char validar = e.getKeyChar();
-				if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)) {
+				if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
+						| (validar == '.' && textmoneda2.getText().contains(".")) | (validar == ',')
+						| (validar == '.' && textmoneda2.getText().length() == 0)) {
 					e.consume();
 				}
+				// if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)) {
+				// e.consume();
+				// }
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
 				if (!textmoneda2.getText().isEmpty())
 					textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
-							Objects.requireNonNull(comboBox.getSelectedItem()).toString(), Double.parseDouble(textmoneda2.getText())));
+							Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
+							Double.parseDouble(textmoneda2.getText())));
 			}
 		});
 
@@ -214,11 +225,15 @@ public class Convertidor_Masa {
 			}
 		});
 
-		comboBox.addActionListener(e -> textmoneda2.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
-				Objects.requireNonNull(comboBox2.getSelectedItem()).toString(), Double.parseDouble(textmoneda1.getText()))));
+		comboBox.addActionListener(
+				e -> textmoneda2.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
+						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
+						Double.parseDouble(textmoneda1.getText()))));
 
-		comboBox2.addActionListener(e -> textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
-				Objects.requireNonNull(comboBox.getSelectedItem()).toString(), Double.parseDouble(textmoneda2.getText()))));
+		comboBox2.addActionListener(
+				e -> textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
+						Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
+						Double.parseDouble(textmoneda2.getText()))));
 
 		lblCreditos.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
