@@ -73,6 +73,10 @@ if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
 
 ![idea64_rFMCCCtVpV](https://user-images.githubusercontent.com/94420600/224591238-cfb529b5-e0db-4d7b-a12d-bd95cb491161.gif)
  
+
+ <code><strong>Solucion mas sencilla gano, no cerrar la ventana que invoca y cerrar solo la ventana, tambien se cierra si pierde el focus.</strong></code>
+ 
+ 
  <hr>
 
 🕷 **Codigo muy sucio:** Falta mucha optimizacion que se ira implementando de a poco hasta obtener algo mas limpio.
