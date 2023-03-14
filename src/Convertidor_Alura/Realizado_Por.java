@@ -130,6 +130,7 @@ public class Realizado_Por {
 				clipboard.setContents(stringSelection, null);
 				JOptionPane.showMessageDialog(null, "Gmail - Copiado al portapapeles", "Copiado Correctamente",
 						JOptionPane.INFORMATION_MESSAGE);
+			//rewrwer
 			}
 		});
 		lblgmail.setBounds(185, 256, 50, 50);

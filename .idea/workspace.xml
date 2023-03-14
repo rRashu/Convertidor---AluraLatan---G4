@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="877ad93b-4eae-4e8b-a674-1541438bb2f5" name="Changes" comment="Corregido en problema de punto duplicado">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="877ad93b-4eae-4e8b-a674-1541438bb2f5" name="Changes" comment="solucionado el problema con la ventana Realizado_Por" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678748169531</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="solucionado el problema con la ventana Realizado_Por">
+      <created>1678771577533</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678771577533</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -189,7 +194,8 @@
     <MESSAGE value="Corregido las exepciones que saltaban cuando los valores estaban vacios y exepciones en general" />
     <MESSAGE value="Primera version completa, faltan detalles y optimizar el codigo" />
     <MESSAGE value="Corregido en problema de punto duplicado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corregido en problema de punto duplicado" />
+    <MESSAGE value="solucionado el problema con la ventana Realizado_Por" />
+    <option name="LAST_COMMIT_MESSAGE" value="solucionado el problema con la ventana Realizado_Por" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
