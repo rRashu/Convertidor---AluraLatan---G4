@@ -21,20 +21,35 @@ El conversor es un sistema basico, en el cual al inicio se nos muestra una venta
 
 Para el proceso de validacion simplemente 
 
-```java
-char validar = e.getKeyChar();
-	if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)) {
-			e.consume();
-	}
+```python
+if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
+						| (validar == '.' && textmoneda2.getText().contains(".")) | (validar == ',')
+						| (validar == '.' && textmoneda2.getText().length() == 0)) {
+					e.consume();
+				}
 ```
-En donde tan solo limitados la cantidad de caracteres que podemos ingresar calculando eso mediante las exepciones que se realizan por medio de la libreria Swing de java para evitar que se sigan introduciendo valores o cuando el valor ingresado sea una letra, realizando el proceso de validacion 
+
+
+* Limitamos el tamaño de caracteres que se ingresan.
+* Solo se puede usar numeros.
+* Solo se puede usar un punto en cada campo.
+```python
+ - [✔] 123.456
+ - [X] 12.34.56
+```
+* Ningun campo puede iniciar con un punto
+```python
+ - [✔] 123.456
+ - [X] .123456
+```
 
 ❌ `Fallas que aun no logro solucionar` 
+---
 
-🕷 **Validacion:** Al momento de introducir valores me permite tanto comas y puntos, el problema viene cuando introducimos ambas en el mismo campo salta una exepcion.
+🕷 **Validacion:** ~~Al momento de introducir valores me permite tanto comas y puntos, el problema viene cuando introducimos ambas en el mismo campo salta una exepcion.~~
+
 
 ![yoZDO77eY0](https://user-images.githubusercontent.com/94420600/224590974-896b598e-3322-4913-a3a7-cb763d1c4cea.gif)
-
 
 
 🕷 **Ventana sin memoria de retorno:** Al  no querer crear varias clases iguales (La que tiene mis link y nombre) en el momento que de una ventana de conversion se presiona el boton de datos me vuelve al inicio y no regreso a la ventana que estaba anteriormente.    
@@ -46,3 +61,11 @@ En donde tan solo limitados la cantidad de caracteres que podemos ingresar calcu
 🕷 **Codigo muy sucio:** Falta mucha optimizacion que se ira implementando de a poco hasta obtener algo mas limpio.
 
 🕷 **Mala eleccion de colores:** Tanto la interfaz grafica como el resto de ventanas no me convense del todo, cuando tenga inspiracion mejorara.
+
+## `Corregido `
+
+
+- [x] Validacion.
+- [ ] Ventana sin memoria de retorno.
+- [ ] Codigo Muy sucio.
+- [ ] Mala Eleccion de colores.
