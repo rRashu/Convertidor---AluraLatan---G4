@@ -221,7 +221,6 @@ public class Convertidor_Masa {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				realizado.frmConvertidorAluralatan.setVisible(true);
-				frmConvertidorAluralatan.setVisible(false);
 			}
 		});
 

@@ -219,7 +219,6 @@ public class Convertidor_Moneda {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				realizado.frmConvertidorAluralatan.setVisible(true);
-				frmConvertidorAluralatan.setVisible(false);
 			}
 		});
 

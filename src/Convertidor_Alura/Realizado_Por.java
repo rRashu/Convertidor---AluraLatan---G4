@@ -10,6 +10,8 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
+import java.awt.event.WindowFocusListener;
+import java.awt.event.WindowEvent;
 
 public class Realizado_Por {
 
@@ -25,6 +27,13 @@ public class Realizado_Por {
 	 */
 	void initialize() {
 		frmConvertidorAluralatan = new JFrame();
+		frmConvertidorAluralatan.addWindowFocusListener(new WindowFocusListener() {
+			public void windowGainedFocus(WindowEvent e) {
+			}
+			public void windowLostFocus(WindowEvent e) {
+				frmConvertidorAluralatan.setVisible(false);
+			}
+		});
 		frmConvertidorAluralatan.setTitle("Convertidor - AluraLatan");
 		frmConvertidorAluralatan.setBounds(100, 100, 315, 354);
 		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,8 +56,6 @@ public class Realizado_Por {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Principal principal =new Principal();
-				principal.frmConvertidorAluralatan.setVisible(true);
 				frmConvertidorAluralatan.setVisible(false);
 			}
 		});

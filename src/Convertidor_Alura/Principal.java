@@ -183,8 +183,7 @@ public class Principal {
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				realizado.frmConvertidorAluralatan.setVisible(true);
-				frmConvertidorAluralatan.setVisible(false);
+				realizado.frmConvertidorAluralatan.setVisible(true);				
 			}
 		});
 		lblCreditos.setToolTipText("Realizado por.");
