@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="877ad93b-4eae-4e8b-a674-1541438bb2f5" name="Changes" comment="mejora en el diseño, correcion de un error cuando se da y perdia focus un textfied">
+    <list default="true" id="877ad93b-4eae-4e8b-a674-1541438bb2f5" name="Changes" comment="resolver">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Convertidor_Masa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Convertidor_Masa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Convertidor_Moneda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Convertidor_Moneda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Realizado_Por.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Realizado_Por.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Utilitario_General.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Utilitario_General.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +31,11 @@
         <option name="argument" value="--tags" />
         <option name="title" value="All" />
       </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="cac95e563b8e41676420af522249a472a53fc945" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
@@ -49,30 +59,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/robin/Downloads/Conversor-master",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/robin/Downloads/Conversor-master&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "module",
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;module&quot;,
+      &quot;directory&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Convertidor_Alura.Main" />
@@ -224,7 +234,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678904752305</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="resolver">
+      <created>1678905420287</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678905420287</updated>
+    </task>
+    <task id="LOCAL-00017" summary="resolver">
+      <created>1678905449588</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1678905449588</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -259,8 +283,9 @@
     <MESSAGE value="Primera version completa, faltan detalles y optimizar el codigo" />
     <MESSAGE value="Corregido en problema de punto duplicado" />
     <MESSAGE value="solucionado el problema con la ventana Realizado_Por" />
-    <MESSAGE value="mejora en el diseño, correcion de un error cuando se da y perdia focus un textfied" />
-    <option name="LAST_COMMIT_MESSAGE" value="mejora en el diseño, correcion de un error cuando se da y perdia focus un textfied" />
+    <MESSAGE value="mejora en el diseño, correcion de un error cuando se da y perdia focus un textfied aun falta" />
+    <MESSAGE value="resolver" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

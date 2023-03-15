@@ -104,6 +104,7 @@ public class Convertidor_Masa implements Utilitario_General {
         textmoneda1.setBorder(new LineBorder(Borde_text, Borde_Grosor));
         textmoneda1.setOpaque(false);
         textmoneda1.setText("0");
+        textmoneda1.setCaretColor(Puntero_text);
         frmConvertidorAluralatan.getContentPane().add(textmoneda1);
 
         JTextField textmoneda2 = new JTextField();
@@ -114,6 +115,7 @@ public class Convertidor_Masa implements Utilitario_General {
         textmoneda2.setBorder(new LineBorder(Borde_text, Borde_Grosor));
         textmoneda2.setOpaque(false);
         textmoneda2.setText("0");
+        textmoneda1.setCaretColor(Puntero_text);
         frmConvertidorAluralatan.getContentPane().add(textmoneda2);
 
         JLabel lblNewLabel_2_1_1_1 = new JLabel("One G4");

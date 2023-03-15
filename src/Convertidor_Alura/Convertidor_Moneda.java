@@ -7,7 +7,6 @@ import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Objects;
-//aun pendiente
 public class Convertidor_Moneda implements Utilitario_General {
 
 	JFrame frmConvertidorAluralatan;
@@ -104,6 +103,7 @@ public class Convertidor_Moneda implements Utilitario_General {
 		textmoneda1.setBorder(new LineBorder(Borde_text, Borde_Grosor, true));
 		textmoneda1.setOpaque(false);
 		textmoneda1.setText("0.00");
+		textmoneda1.setCaretColor(Puntero_text);
 		frmConvertidorAluralatan.getContentPane().add(textmoneda1);
 
 		JTextField textmoneda2 = new JTextField();
@@ -114,6 +114,7 @@ public class Convertidor_Moneda implements Utilitario_General {
 		textmoneda2.setBorder(new LineBorder(Borde_text, Borde_Grosor));
 		textmoneda2.setOpaque(false);
 		textmoneda2.setText("0.00");
+		textmoneda2.setCaretColor(Puntero_text);
 		frmConvertidorAluralatan.getContentPane().add(textmoneda2);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("One G4");

@@ -9,5 +9,6 @@ public interface Utilitario_General {
 	Color Texto_text = new Color(255, 255, 255);
 	Color Borde_text = new Color(243, 2, 2);
 	int Borde_Grosor = 1;
+	Color Puntero_text = new Color( 255,255,255);
 
 }
