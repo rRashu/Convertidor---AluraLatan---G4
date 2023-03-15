@@ -201,3 +201,4 @@ public class Principal implements Utilitario_General {
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1);
 	}
 }
+//ahora
