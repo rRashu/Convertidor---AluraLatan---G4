@@ -2,17 +2,24 @@
   <dictionary name="robin">
     <words>
       <w>calibri</w>
+      <w>colorines</w>
       <w>creditos</w>
       <w>dolar</w>
       <w>iconodatos</w>
       <w>iconogmail</w>
+      <w>iconom</w>
+      <w>iconomasa</w>
       <w>imdatos</w>
       <w>imgmail</w>
       <w>japones</w>
       <w>lblgmail</w>
       <w>lblmover</w>
+      <w>masaico</w>
+      <w>microgramo</w>
       <w>rezabala</w>
+      <w>sesion</w>
       <w>textmoneda</w>
+      <w>titulos</w>
     </words>
   </dictionary>
 </component>

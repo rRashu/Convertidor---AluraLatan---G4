@@ -8,347 +8,340 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class Convertidor_Masa {
+public class Convertidor_Masa implements Utilitario_General {
 
-	JFrame frmConvertidorAluralatan;
-	int xOffset, yOffset;
-	Realizado_Por realizado = new Realizado_Por();
-	String[] unidad = { "Microgramo", "Gramo", "Onza", "Libra", "Kilogramo", "Tonelada" };
+    JFrame frmConvertidorAluralatan;
+    int xOffset, yOffset;
+    Realizado_Por realizado = new Realizado_Por();
+    String[] unidad = {"Microgramo", "Gramo", "Onza", "Libra", "Kilogramo", "Tonelada"};
 
-	public Convertidor_Masa() {
+    public Convertidor_Masa () {
 
-		initialize();
-	}
+        initialize();
+    }
 
-	void initialize() {
-		frmConvertidorAluralatan = new JFrame();
-		frmConvertidorAluralatan.setTitle("Convertidor de Masa - AluraLatan");
-		frmConvertidorAluralatan.setBounds(100, 100, 622, 300);
-		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmConvertidorAluralatan.getContentPane().setLayout(null);
-		frmConvertidorAluralatan.setResizable(false);
-		frmConvertidorAluralatan.setLocationRelativeTo(null); // centra la ventana
-		frmConvertidorAluralatan.setUndecorated(true); // efecto de trasparencia unido con el color de fondo
-		frmConvertidorAluralatan.setBackground(new Color(198, 190, 238, 230)); // color de fondo de la ventana
+    void initialize () {
+        frmConvertidorAluralatan = new JFrame();
+        frmConvertidorAluralatan.setTitle("Convertidor de Masa - AluraLatan");
+        frmConvertidorAluralatan.setBounds(100, 100, 622, 300);
+        frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmConvertidorAluralatan.getContentPane().setLayout(null);
+        frmConvertidorAluralatan.setResizable(false);
+        frmConvertidorAluralatan.setLocationRelativeTo(null); // centra la ventana
+        frmConvertidorAluralatan.setUndecorated(true); // efecto de trasparencia unido con el color de fondo
+        frmConvertidorAluralatan.setBackground(FondoVentana); // color de fondo de la ventana
+        ImageIcon iconoAlura = new ImageIcon("Imagenes/Alura.png");
+        frmConvertidorAluralatan.setIconImage(iconoAlura.getImage());
 
-		JLabel lblSalir = new JLabel("");
-		lblSalir.setToolTipText("Volver");
-		lblSalir.setBounds(579, 0, 33, 41);
-		ImageIcon im = new ImageIcon("Imagenes/volver-color.png");
-		Icon icono = new ImageIcon(
-				im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(), Image.SCALE_DEFAULT));
-		lblSalir.setIcon(icono);
-		frmConvertidorAluralatan.getContentPane().add(lblSalir);
+        JLabel lblSalir = new JLabel("");
+        lblSalir.setToolTipText("Volver");
+        lblSalir.setBounds(579, 0, 33, 41);
+        ImageIcon im = new ImageIcon("Imagenes/volver-color.png");
+        Icon icono = new ImageIcon(
+                im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(), Image.SCALE_DEFAULT));
+        lblSalir.setIcon(icono);
+        frmConvertidorAluralatan.getContentPane().add(lblSalir);
 
-		JLabel lblmover = new JLabel("");
-		lblmover.setForeground(new Color(0, 0, 255));
-		lblmover.setBounds(0, 0, 562, 56);
-		frmConvertidorAluralatan.getContentPane().add(lblmover);
+        JLabel lblmover = new JLabel("");
+        lblmover.setForeground(new Color(0, 0, 255));
+        lblmover.setBounds(0, 0, 562, 56);
+        frmConvertidorAluralatan.getContentPane().add(lblmover);
 
-		JLabel lblNewLabel_2 = new JLabel("Alura");
-		lblNewLabel_2.setForeground(new Color(0, 128, 128));
-		lblNewLabel_2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 27));
+        JLabel lblNewLabel_2 = new JLabel("Alura");
+        lblNewLabel_2.setForeground(Etiquetas_titulos);
+        lblNewLabel_2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 27));
 
-		lblNewLabel_2.setBounds(7, 0, 101, 41);
-		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2);
+        lblNewLabel_2.setBounds(7, 0, 101, 41);
+        frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2);
 
-		JLabel lblNewLabel_2_1 = new JLabel("Latan");
-		lblNewLabel_2_1.setForeground(new Color(0, 128, 128));
-		lblNewLabel_2_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
-		lblNewLabel_2_1.setBounds(48, 29, 60, 30);
-		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1);
+        JLabel lblNewLabel_2_1 = new JLabel("Latam");
+        lblNewLabel_2_1.setForeground(Etiquetas_titulos);
+        lblNewLabel_2_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
+        lblNewLabel_2_1.setBounds(48, 29, 60, 30);
+        frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1);
 
-		JLabel lblCreditos = new JLabel("");
-		lblCreditos.setToolTipText("Realizado por.");
-		lblCreditos.setBounds(7, 259, 30, 30);
-		ImageIcon imdatos = new ImageIcon("Imagenes/Datos-color.png");
-		Icon iconodatos = new ImageIcon(imdatos.getImage().getScaledInstance(lblCreditos.getWidth(),
-				lblCreditos.getHeight(), Image.SCALE_DEFAULT));
-		lblCreditos.setIcon(iconodatos);
-		frmConvertidorAluralatan.getContentPane().add(lblCreditos);
+        JLabel lblCreditos = new JLabel("");
+        lblCreditos.setToolTipText("Realizado por.");
+        lblCreditos.setBounds(7, 259, 30, 30);
+        ImageIcon imdatos = new ImageIcon("Imagenes/Datos-color.png");
+        Icon iconodatos = new ImageIcon(imdatos.getImage().getScaledInstance(lblCreditos.getWidth(),
+                lblCreditos.getHeight(), Image.SCALE_DEFAULT));
+        lblCreditos.setIcon(iconodatos);
+        frmConvertidorAluralatan.getContentPane().add(lblCreditos);
 
-		JLabel lblNewLabel_2_1_1 = new JLabel("Convertidor De Masa");
-		lblNewLabel_2_1_1.setForeground(new Color(0, 128, 128));
-		lblNewLabel_2_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
-		lblNewLabel_2_1_1.setBounds(153, 67, 372, 56);
-		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1);
+        JLabel lblNewLabel_2_1_1 = new JLabel("Convertidor De Masa");
+        lblNewLabel_2_1_1.setForeground(Etiquetas_titulos);
+        lblNewLabel_2_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
+        lblNewLabel_2_1_1.setBounds(153, 67, 372, 56);
+        frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1);
 
-		JComboBox<String> comboBox = new JComboBox<>();
-		comboBox.setBackground(new Color(50, 205, 50));
-		comboBox.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		comboBox.setModel(new DefaultComboBoxModel<>(unidad));
-		comboBox.setBounds(119, 151, 155, 20);
-		comboBox.setSelectedItem(comboBox.getItemAt(3));
-		frmConvertidorAluralatan.getContentPane().add(comboBox);
+        JComboBox<String> comboBox = new JComboBox<>();
+        comboBox.setBackground(Combo_Box);
+        comboBox.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+        comboBox.setModel(new DefaultComboBoxModel<>(unidad));
+        comboBox.setBounds(119, 151, 155, 20);
+        comboBox.setSelectedItem(comboBox.getItemAt(3));
+        frmConvertidorAluralatan.getContentPane().add(comboBox);
 
-		JLabel lblMoneda2 = new JLabel("");
-		lblMoneda2.setBounds(324, 128, 60, 60);
-		lblMoneda2.setIcon(setIcono("Imagenes/Gramo.png"));
-		frmConvertidorAluralatan.getContentPane().add(lblMoneda2);
+        JLabel lblMoneda2 = new JLabel("");
+        lblMoneda2.setBounds(324, 128, 60, 60);
+        lblMoneda2.setIcon(setIcono("Imagenes/Gramo.png"));
+        frmConvertidorAluralatan.getContentPane().add(lblMoneda2);
 
-		JComboBox<String> comboBox2 = new JComboBox<>();
-		comboBox2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		comboBox2.setBackground(new Color(50, 205, 50));
-		comboBox2.setModel(new DefaultComboBoxModel<>(unidad));
-		comboBox2.setBounds(392, 151, 155, 20);
-		comboBox2.setSelectedItem(comboBox.getItemAt(1));
-		frmConvertidorAluralatan.getContentPane().add(comboBox2);
+        JComboBox<String> comboBox2 = new JComboBox<>();
+        comboBox2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
+        comboBox2.setBackground(Combo_Box);
+        comboBox2.setModel(new DefaultComboBoxModel<>(unidad));
+        comboBox2.setBounds(392, 151, 155, 20);
+        comboBox2.setSelectedItem(comboBox.getItemAt(1));
+        frmConvertidorAluralatan.getContentPane().add(comboBox2);
 
-		JTextField textmoneda1 = new JTextField();
-		textmoneda1.setForeground(Color.BLUE);
-		textmoneda1.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		textmoneda1.setBounds(129, 182, 145, 34);
-		textmoneda1.setColumns(10);
-		textmoneda1.setBorder(new LineBorder(new Color(30, 33, 61, 100), 5));
-		textmoneda1.setOpaque(false);
-		textmoneda1.setText("0");
-		frmConvertidorAluralatan.getContentPane().add(textmoneda1);
+        JTextField textmoneda1 = new JTextField();
+        textmoneda1.setForeground(Texto_text);
+        textmoneda1.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        textmoneda1.setBounds(129, 182, 145, 34);
+        textmoneda1.setColumns(10);
+        textmoneda1.setBorder(new LineBorder(Borde_text, Borde_Grosor));
+        textmoneda1.setOpaque(false);
+        textmoneda1.setText("0");
+        frmConvertidorAluralatan.getContentPane().add(textmoneda1);
 
-		JTextField textmoneda2 = new JTextField();
-		textmoneda2.setColumns(10);
-		textmoneda2.setForeground(Color.BLUE);
-		textmoneda2.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		textmoneda2.setBounds(391, 182, 145, 34);
-		textmoneda2.setBorder(new LineBorder(new Color(30, 33, 61, 100), 5));
-		textmoneda2.setOpaque(false);
-		textmoneda2.setText("0");
-		frmConvertidorAluralatan.getContentPane().add(textmoneda2);
+        JTextField textmoneda2 = new JTextField();
+        textmoneda2.setColumns(10);
+        textmoneda2.setForeground(Texto_text);
+        textmoneda2.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        textmoneda2.setBounds(391, 182, 145, 34);
+        textmoneda2.setBorder(new LineBorder(Borde_text, Borde_Grosor));
+        textmoneda2.setOpaque(false);
+        textmoneda2.setText("0");
+        frmConvertidorAluralatan.getContentPane().add(textmoneda2);
 
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("One G4");
-		lblNewLabel_2_1_1_1.setForeground(new Color(0, 128, 128));
-		lblNewLabel_2_1_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
-		lblNewLabel_2_1_1_1.setBounds(543, 259, 79, 30);
-		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1_1);
+        JLabel lblNewLabel_2_1_1_1 = new JLabel("One G4");
+        lblNewLabel_2_1_1_1.setForeground(Etiquetas_titulos);
+        lblNewLabel_2_1_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
+        lblNewLabel_2_1_1_1.setBounds(543, 259, 79, 30);
+        frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1_1);
 
-		JLabel lblMoneda1 = new JLabel("");
-		lblMoneda1.setBounds(48, 128, 60, 60);
-		lblMoneda1.setIcon(setIcono("Imagenes/Libra-masa.png"));
-		frmConvertidorAluralatan.getContentPane().add(lblMoneda1);
+        JLabel lblMoneda1 = new JLabel("");
+        lblMoneda1.setBounds(48, 128, 60, 60);
+        lblMoneda1.setIcon(setIcono("Imagenes/Libra-masa.png"));
+        frmConvertidorAluralatan.getContentPane().add(lblMoneda1);
 
-		// eventos
+        // eventos
 
-		textmoneda1.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				if ((textmoneda1.getText().equals("0")) || (textmoneda1.getText().isEmpty())) {
-					textmoneda1.setText("");
-				}
+        textmoneda1.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained (FocusEvent e) {
+                if ((textmoneda1.getText().equals("0")) || (textmoneda1.getText().isEmpty())) {
+                    textmoneda1.setText("");
+                }
 
-			}
+            }
 
-			@Override
-			public void focusLost(FocusEvent e) {
-				if (textmoneda1.getText().isEmpty()) {
-					textmoneda1.setText("0");
-				}
-				textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
-						(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(),
-						Double.parseDouble(textmoneda1.getText())));
-			}
-		});
+            @Override
+            public void focusLost (FocusEvent e) {
+                if (textmoneda1.getText().isEmpty()) {
+                    textmoneda1.setText("0");
+                }
+                }
+        });
 
-		textmoneda1.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char validar = e.getKeyChar();
-				if ((textmoneda1.getText().length() == 10) | Character.isLetter(validar)
-						| (validar == '.' && textmoneda1.getText().contains(".")) | (validar == ',')
-						| (validar == '.' && textmoneda1.getText().length() == 0)) {
-					e.consume();
-				}
-			}
+        textmoneda1.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped (KeyEvent e) {
+                char validar = e.getKeyChar();
+                if ((textmoneda1.getText().length() == 10) | Character.isLetter(validar)
+                        | (validar == '.' && textmoneda1.getText().contains(".")) | (validar == ',')
+                        | (validar == '.' && textmoneda1.getText().length() == 0)) {
+                    e.consume();
+                }
+            }
 
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if (!textmoneda1.getText().isEmpty())
-					textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
-							(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(),
-							Double.parseDouble(textmoneda1.getText())));
-			}
-		});
+            @Override
+            public void keyReleased (KeyEvent e) {
+                if (!textmoneda1.getText().isEmpty())
+                    textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
+                            (Objects.requireNonNull(comboBox2.getSelectedItem())).toString(),
+                            Double.parseDouble(textmoneda1.getText())));
+            }
+        });
 
-		textmoneda2.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				if ((textmoneda2.getText().equals("0")) || (textmoneda2.getText().isEmpty())) {
-					textmoneda2.setText("");
-				}
-			}
+        textmoneda2.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained (FocusEvent e) {
+                if ((textmoneda2.getText().equals("0")) || (textmoneda2.getText().isEmpty())) {
+                    textmoneda2.setText("");
+                }
+            }
 
-			@Override
-			public void focusLost(FocusEvent e) {
-				if (textmoneda2.getText().isEmpty()) {
-					textmoneda2.setText("0");
-				}
-				textmoneda1.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
-						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
-						Double.parseDouble(textmoneda1.getText())));
-			}
-		});
+            @Override
+            public void focusLost (FocusEvent e) {
+                if (textmoneda2.getText().isEmpty()) {
+                    textmoneda2.setText("0");
+                }
+              }
+        });
 
-		textmoneda2.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char validar = e.getKeyChar();
-				if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
-						| (validar == '.' && textmoneda2.getText().contains(".")) | (validar == ',')
-						| (validar == '.' && textmoneda2.getText().length() == 0)) {
-					e.consume();
-				}
-				// if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)) {
-				// e.consume();
-				// }
-			}
+        textmoneda2.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped (KeyEvent e) {
+                char validar = e.getKeyChar();
+                if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
+                        | (validar == '.' && textmoneda2.getText().contains(".")) | (validar == ',')
+                        | (validar == '.' && textmoneda2.getText().length() == 0)) {
+                    e.consume();
+                }
+            }
 
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if (!textmoneda2.getText().isEmpty())
-					textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
-							Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
-							Double.parseDouble(textmoneda2.getText())));
-			}
-		});
+            @Override
+            public void keyReleased (KeyEvent e) {
+                if (!textmoneda2.getText().isEmpty())
+                    textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
+                            Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
+                            Double.parseDouble(textmoneda2.getText())));
+            }
+        });
 
-		lblCreditos.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseExited(MouseEvent e) {
-				ImageIcon im = new ImageIcon("Imagenes/Datos-color.png");
-				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblCreditos.getWidth(),
-						lblCreditos.getHeight(), Image.SCALE_DEFAULT));
-				lblCreditos.setIcon(icono);
-			}
+        lblCreditos.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseExited (MouseEvent e) {
+                ImageIcon im = new ImageIcon("Imagenes/Datos-color.png");
+                Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblCreditos.getWidth(),
+                        lblCreditos.getHeight(), Image.SCALE_DEFAULT));
+                lblCreditos.setIcon(icono);
+            }
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				realizado.frmConvertidorAluralatan.setVisible(true);
-			}
-		});
+            @Override
+            public void mouseClicked (MouseEvent e) {
+                realizado.frmConvertidorAluralatan.setVisible(true);
+            }
+        });
 
-		comboBox.addActionListener(
-				e -> textmoneda2.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
-						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
-						Double.parseDouble(textmoneda1.getText()))));
+        comboBox.addActionListener(
+                e -> textmoneda2.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
+                        Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
+                        Double.parseDouble(textmoneda1.getText()))));
 
-		comboBox2.addActionListener(
-				e -> textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
-						Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
-						Double.parseDouble(textmoneda2.getText()))));
+        comboBox2.addActionListener(
+                e -> textmoneda1.setText(calculo(Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
+                        Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
+                        Double.parseDouble(textmoneda2.getText()))));
 
-		lblCreditos.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseMoved(MouseEvent e) {
-				ImageIcon im = new ImageIcon("Imagenes/Datos.png");
-				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblCreditos.getWidth(),
-						lblCreditos.getHeight(), Image.SCALE_DEFAULT));
-				lblCreditos.setIcon(icono);
-			}
-		});
+        lblCreditos.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved (MouseEvent e) {
+                ImageIcon im = new ImageIcon("Imagenes/Datos.png");
+                Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblCreditos.getWidth(),
+                        lblCreditos.getHeight(), Image.SCALE_DEFAULT));
+                lblCreditos.setIcon(icono);
+            }
+        });
 
-		lblSalir.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseExited(MouseEvent e) {
-				ImageIcon im = new ImageIcon("Imagenes/volver-color.png");
-				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(),
-						Image.SCALE_DEFAULT));
-				lblSalir.setIcon(icono);
-			}
+        lblSalir.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseExited (MouseEvent e) {
+                ImageIcon im = new ImageIcon("Imagenes/volver-color.png");
+                Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(),
+                        Image.SCALE_DEFAULT));
+                lblSalir.setIcon(icono);
+            }
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				Principal principal = new Principal();
-				principal.frmConvertidorAluralatan.setVisible(true);
-				frmConvertidorAluralatan.setVisible(false);
-			}
-		});
+            @Override
+            public void mouseClicked (MouseEvent e) {
+                Principal principal = new Principal();
+                principal.frmConvertidorAluralatan.setVisible(true);
+                frmConvertidorAluralatan.setVisible(false);
+            }
+        });
 
-		comboBox2.addItemListener(e -> {
-			if (comboBox2.getSelectedIndex() == 0) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Microgramo.png"));
-			} else if (comboBox2.getSelectedIndex() == 1) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Gramo.png"));
-			} else if (comboBox2.getSelectedIndex() == 2) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Onza.png"));
-			} else if (comboBox2.getSelectedIndex() == 3) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Libra-masa.png"));
-			} else if (comboBox2.getSelectedIndex() == 4) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Kilogramo.png"));
-			} else if (comboBox2.getSelectedIndex() == 5) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Tonelada.png"));
-			}
-		});
+        comboBox2.addItemListener(e -> {
+            if (comboBox2.getSelectedIndex() == 0) {
+                lblMoneda2.setIcon(setIcono("Imagenes/Microgramo.png"));
+            } else if (comboBox2.getSelectedIndex() == 1) {
+                lblMoneda2.setIcon(setIcono("Imagenes/Gramo.png"));
+            } else if (comboBox2.getSelectedIndex() == 2) {
+                lblMoneda2.setIcon(setIcono("Imagenes/Onza.png"));
+            } else if (comboBox2.getSelectedIndex() == 3) {
+                lblMoneda2.setIcon(setIcono("Imagenes/Libra-masa.png"));
+            } else if (comboBox2.getSelectedIndex() == 4) {
+                lblMoneda2.setIcon(setIcono("Imagenes/Kilogramo.png"));
+            } else if (comboBox2.getSelectedIndex() == 5) {
+                lblMoneda2.setIcon(setIcono("Imagenes/Tonelada.png"));
+            }
+        });
 
-		lblmover.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseDragged(MouseEvent e) {
-				int x = frmConvertidorAluralatan.getLocation().x;
-				int y = frmConvertidorAluralatan.getLocation().y;
-				frmConvertidorAluralatan.setLocation(x + e.getX() - xOffset, y + e.getY() - yOffset);
-				frmConvertidorAluralatan.setLocation(x + e.getX() - xOffset, y + e.getY() - yOffset);
-			}
-		});
+        lblmover.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged (MouseEvent e) {
+                int x = frmConvertidorAluralatan.getLocation().x;
+                int y = frmConvertidorAluralatan.getLocation().y;
+                frmConvertidorAluralatan.setLocation(x + e.getX() - xOffset, y + e.getY() - yOffset);
+                frmConvertidorAluralatan.setLocation(x + e.getX() - xOffset, y + e.getY() - yOffset);
+            }
+        });
 
-		lblmover.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblmover.setCursor(new Cursor(Cursor.MOVE_CURSOR));
-			}
+        lblmover.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered (MouseEvent e) {
+                lblmover.setCursor(new Cursor(Cursor.MOVE_CURSOR));
+            }
 
-			@Override
-			public void mousePressed(MouseEvent e) {
-				xOffset = e.getX();
-				yOffset = e.getY();
-			}
-		});
+            @Override
+            public void mousePressed (MouseEvent e) {
+                xOffset = e.getX();
+                yOffset = e.getY();
+            }
+        });
 
-		comboBox.addItemListener(e -> {
+        comboBox.addItemListener(e -> {
 
-			if (comboBox.getSelectedIndex() == 0) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Microgramo.png"));
-			} else if (comboBox.getSelectedIndex() == 1) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Gramo.png"));
-			} else if (comboBox.getSelectedIndex() == 2) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Onza.png"));
-			} else if (comboBox.getSelectedIndex() == 3) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Libra-masa.png"));
-			} else if (comboBox.getSelectedIndex() == 4) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Kilogramo.png"));
-			} else if (comboBox.getSelectedIndex() == 5) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Tonelada.png"));
-			}
-		});
+            if (comboBox.getSelectedIndex() == 0) {
+                lblMoneda1.setIcon(setIcono("Imagenes/Microgramo.png"));
+            } else if (comboBox.getSelectedIndex() == 1) {
+                lblMoneda1.setIcon(setIcono("Imagenes/Gramo.png"));
+            } else if (comboBox.getSelectedIndex() == 2) {
+                lblMoneda1.setIcon(setIcono("Imagenes/Onza.png"));
+            } else if (comboBox.getSelectedIndex() == 3) {
+                lblMoneda1.setIcon(setIcono("Imagenes/Libra-masa.png"));
+            } else if (comboBox.getSelectedIndex() == 4) {
+                lblMoneda1.setIcon(setIcono("Imagenes/Kilogramo.png"));
+            } else if (comboBox.getSelectedIndex() == 5) {
+                lblMoneda1.setIcon(setIcono("Imagenes/Tonelada.png"));
+            }
+        });
 
-		lblSalir.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseMoved(MouseEvent e) {
-				ImageIcon im = new ImageIcon("Imagenes/volver.png");
-				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(),
-						Image.SCALE_DEFAULT));
-				lblSalir.setIcon(icono);
-			}
-		});
+        lblSalir.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved (MouseEvent e) {
+                ImageIcon im = new ImageIcon("Imagenes/volver.png");
+                Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(),
+                        Image.SCALE_DEFAULT));
+                lblSalir.setIcon(icono);
+            }
+        });
 
-	}
+    }
 
-	// clases apartes
+    // clases apartes
 
-	public Icon setIcono(String ruta) {
-		ImageIcon im = new ImageIcon(ruta);
-		return new ImageIcon(im.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-	}
+    public Icon setIcono (String ruta) {
+        ImageIcon im = new ImageIcon(ruta);
+        return new ImageIcon(im.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    }
 
-	public String calculo(String cmb1, String cmb2, double monto) {
-		if (!cmb1.isEmpty() | !cmb1.isEmpty()) {
-			HashMap<String, Double> tasas = new HashMap<>();
-			tasas.put("Microgramo", 1000000.0);
-			tasas.put("Gramo", 1.0);
-			tasas.put("Onza", 0.03527396);
-			tasas.put("Libra", 0.00220462);
-			tasas.put("Kilogramo", 0.001);
-			tasas.put("Tonelada", 0.000001);
-			DecimalFormat rf = new DecimalFormat("0.00000");
-			double resultado = monto * (tasas.get(cmb2) / tasas.get(cmb1));
-			return rf.format(resultado);
-		}
-		return null;
-	}
+    public String calculo (String cmb1, String cmb2, double monto) {
+        if (!cmb1.isEmpty() | !cmb1.isEmpty()) {
+            HashMap<String, Double> tasas = new HashMap<>();
+            tasas.put("Microgramo", 1000000.0);
+            tasas.put("Gramo", 1.0);
+            tasas.put("Onza", 0.03527396);
+            tasas.put("Libra", 0.00220462);
+            tasas.put("Kilogramo", 0.001);
+            tasas.put("Tonelada", 0.000001);
+            DecimalFormat rf = new DecimalFormat("0.00000");
+            double resultado = monto * (tasas.get(cmb2) / tasas.get(cmb1));
+            return rf.format(resultado);
+        }
+        return null;
+    }
 }

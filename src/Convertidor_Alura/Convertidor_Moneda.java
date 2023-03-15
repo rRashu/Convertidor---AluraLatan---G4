@@ -8,27 +8,29 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class Convertidor_Moneda {
+public class Convertidor_Moneda implements Utilitario_General {
 
 	JFrame frmConvertidorAluralatan;
 	int xOffset, yOffset;
 	Realizado_Por realizado = new Realizado_Por();
 
-	public Convertidor_Moneda() {
+	public Convertidor_Moneda () {
 
 		initialize();
 	}
 
 	void initialize() {
 		frmConvertidorAluralatan = new JFrame();
-		frmConvertidorAluralatan.setTitle("Convertidor de Monedas - AluraLatan");
+		frmConvertidorAluralatan.setTitle("Convertidor de Monedas - AluraLatam");
 		frmConvertidorAluralatan.setBounds(100, 100, 622, 300);
 		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmConvertidorAluralatan.getContentPane().setLayout(null);
 		frmConvertidorAluralatan.setResizable(false);
 		frmConvertidorAluralatan.setLocationRelativeTo(null); // centra la ventana
 		frmConvertidorAluralatan.setUndecorated(true); // efecto de trasparencia unido con el color de fondo
-		frmConvertidorAluralatan.setBackground(new Color(198, 190, 238, 230)); // color de fondo de la ventana
+		frmConvertidorAluralatan.setBackground(FondoVentana); // color de fondo de la ventana
+		ImageIcon iconoAlura = new ImageIcon("Imagenes/Alura.png");
+		frmConvertidorAluralatan.setIconImage(iconoAlura.getImage());
 
 		JLabel lblSalir = new JLabel("");
 		lblSalir.setToolTipText("Volver");
@@ -40,19 +42,18 @@ public class Convertidor_Moneda {
 		frmConvertidorAluralatan.getContentPane().add(lblSalir);
 
 		JLabel lblmover = new JLabel("");
-		lblmover.setForeground(new Color(0, 0, 255));
+		lblmover.setForeground(Etiquetas_titulos);
 		lblmover.setBounds(0, 0, 562, 56);
 		frmConvertidorAluralatan.getContentPane().add(lblmover);
 
 		JLabel lblNewLabel_2 = new JLabel("Alura");
-		lblNewLabel_2.setForeground(new Color(0, 128, 128));
+		lblNewLabel_2.setForeground(Etiquetas_titulos);
 		lblNewLabel_2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 27));
-
 		lblNewLabel_2.setBounds(7, 0, 101, 41);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2);
 
-		JLabel lblNewLabel_2_1 = new JLabel("Latan");
-		lblNewLabel_2_1.setForeground(new Color(0, 128, 128));
+		JLabel lblNewLabel_2_1 = new JLabel("Latam");
+		lblNewLabel_2_1.setForeground(Etiquetas_titulos);
 		lblNewLabel_2_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
 		lblNewLabel_2_1.setBounds(48, 29, 60, 30);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1);
@@ -67,13 +68,13 @@ public class Convertidor_Moneda {
 		frmConvertidorAluralatan.getContentPane().add(lblCreditos);
 
 		JLabel lblNewLabel_2_1_1 = new JLabel("Convertidor De Monedas");
-		lblNewLabel_2_1_1.setForeground(new Color(0, 128, 128));
+		lblNewLabel_2_1_1.setForeground(Etiquetas_titulos);
 		lblNewLabel_2_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 30));
 		lblNewLabel_2_1_1.setBounds(153, 67, 372, 56);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1);
 
 		JComboBox<String> comboBox = new JComboBox<>();
-		comboBox.setBackground(new Color(50, 205, 50));
+		comboBox.setBackground(Combo_Box);
 		comboBox.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
 		comboBox.setModel(new DefaultComboBoxModel<>(new String[] { "Peso Colombiano", "Dolar", "Euro",
 				"Libra Esterlina", "Yen Japones", "Won Surcoreano" }));
@@ -88,35 +89,35 @@ public class Convertidor_Moneda {
 
 		JComboBox<String> comboBox2 = new JComboBox<>();
 		comboBox2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 16));
-		comboBox2.setBackground(new Color(50, 205, 50));
-		comboBox2.setModel(new DefaultComboBoxModel<>(new String[] { "Peso Colombiano", "Dolar", "Euro",
-				"Libra Esterlina", "Yen Japones", "Won Surcoreano" }));
+		comboBox2.setBackground(Combo_Box);
+		comboBox2.setModel(new DefaultComboBoxModel<>(new String[]{"Peso Colombiano", "Dolar", "Euro",
+				"Libra Esterlina", "Yen Japones", "Won Surcoreano"}));
 		comboBox2.setBounds(392, 151, 155, 20);
 		comboBox2.setSelectedItem(comboBox.getItemAt(1));
 		frmConvertidorAluralatan.getContentPane().add(comboBox2);
 
 		JTextField textmoneda1 = new JTextField();
-		textmoneda1.setForeground(Color.BLUE);
+		textmoneda1.setForeground(Texto_text);
 		textmoneda1.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		textmoneda1.setBounds(129, 182, 145, 34);
 		textmoneda1.setColumns(10);
-		textmoneda1.setBorder(new LineBorder(new Color(30, 33, 61, 100), 5));
+		textmoneda1.setBorder(new LineBorder(Borde_text, Borde_Grosor, true));
 		textmoneda1.setOpaque(false);
 		textmoneda1.setText("0.00");
 		frmConvertidorAluralatan.getContentPane().add(textmoneda1);
 
 		JTextField textmoneda2 = new JTextField();
 		textmoneda2.setColumns(10);
-		textmoneda2.setForeground(Color.BLUE);
+		textmoneda2.setForeground(Texto_text);
 		textmoneda2.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		textmoneda2.setBounds(391, 182, 145, 34);
-		textmoneda2.setBorder(new LineBorder(new Color(30, 33, 61, 100), 5));
+		textmoneda2.setBorder(new LineBorder(Borde_text, Borde_Grosor));
 		textmoneda2.setOpaque(false);
 		textmoneda2.setText("0.00");
 		frmConvertidorAluralatan.getContentPane().add(textmoneda2);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("One G4");
-		lblNewLabel_2_1_1_1.setForeground(new Color(0, 128, 128));
+		lblNewLabel_2_1_1_1.setForeground(Etiquetas_titulos);
 		lblNewLabel_2_1_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
 		lblNewLabel_2_1_1_1.setBounds(543, 259, 79, 30);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1_1);
@@ -142,9 +143,6 @@ public class Convertidor_Moneda {
 				if (textmoneda1.getText().isEmpty()) {
 					textmoneda1.setText("0.00");
 				}
-				textmoneda2.setText(calculo((Objects.requireNonNull(comboBox.getSelectedItem())).toString(),
-						(Objects.requireNonNull(comboBox2.getSelectedItem())).toString(),
-						Double.parseDouble(textmoneda1.getText())));
 			}
 		});
 
@@ -181,9 +179,6 @@ public class Convertidor_Moneda {
 				if (textmoneda2.getText().isEmpty()) {
 					textmoneda2.setText("0.00");
 				}
-				textmoneda1.setText(calculo(Objects.requireNonNull(comboBox.getSelectedItem()).toString(),
-						Objects.requireNonNull(comboBox2.getSelectedItem()).toString(),
-						Double.parseDouble(textmoneda1.getText())));
 			}
 		});
 

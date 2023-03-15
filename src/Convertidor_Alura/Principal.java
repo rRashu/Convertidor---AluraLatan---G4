@@ -6,7 +6,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 
-public class Principal {
+public class Principal implements Utilitario_General {
 
 	JFrame frmConvertidorAluralatan;
 	int xOffset,yOffset;
@@ -31,7 +31,9 @@ public class Principal {
 		frmConvertidorAluralatan.setResizable(false);
 		frmConvertidorAluralatan.setLocationRelativeTo(null);  //centra la ventana
 		frmConvertidorAluralatan.setUndecorated(true);         //efecto de trasparencia unido con el color de fondo
-		frmConvertidorAluralatan.setBackground(new Color(198,190,238,230)); // color de fondo de la ventana
+		frmConvertidorAluralatan.setBackground(FondoVentana); // color de fondo de la ventana
+		ImageIcon iconoAlura = new ImageIcon("Imagenes/Alura.png");
+		frmConvertidorAluralatan.setIconImage(iconoAlura.getImage());
 		
 		JLabel lblSalir = new JLabel("");
 		lblSalir.setToolTipText("Salir");
@@ -85,7 +87,7 @@ public class Principal {
 			        yOffset = e.getY();
 			}
 		});
-		lblmover.setForeground(new Color(0, 0, 255));
+		lblmover.setForeground(Etiquetas_titulos);
 		lblmover.setBounds(0, 0, 261, 56);
 		frmConvertidorAluralatan.getContentPane().add(lblmover);
 		
@@ -153,14 +155,14 @@ public class Principal {
 		frmConvertidorAluralatan.getContentPane().add(lblMasa);
 		
 		JLabel lblNewLabel_2 = new JLabel("Alura");
-		lblNewLabel_2.setForeground(new Color(0, 128, 128));
+		lblNewLabel_2.setForeground(Etiquetas_titulos);
 		lblNewLabel_2.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 27));
 		
 		lblNewLabel_2.setBounds(7, 0, 101, 41);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Latan");
-		lblNewLabel_2_1.setForeground(new Color(0, 128, 128));
+		JLabel lblNewLabel_2_1 = new JLabel("Latam");
+		lblNewLabel_2_1.setForeground(Etiquetas_titulos);
 		lblNewLabel_2_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
 		lblNewLabel_2_1.setBounds(48, 29, 60, 30);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1);
@@ -194,7 +196,7 @@ public class Principal {
 		frmConvertidorAluralatan.getContentPane().add(lblCreditos);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Convertidor");
-		lblNewLabel_2_1_1.setForeground(new Color(0, 128, 128));
+		lblNewLabel_2_1_1.setForeground(Etiquetas_titulos);
 		lblNewLabel_2_1_1.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 17));
 		lblNewLabel_2_1_1.setBounds(136, 147, 108, 30);
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1);
