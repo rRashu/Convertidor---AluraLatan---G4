@@ -173,7 +173,7 @@ public class Principal implements Utilitario_General {
 			public void mouseMoved(MouseEvent e) {
 				ImageIcon im = new ImageIcon("Imagenes/Datos.png");
 				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblCreditos.getWidth(),lblCreditos.getHeight() , Image.SCALE_DEFAULT ));
-				lblCreditos.setIcon(icono);
+				lblCreditos.setIcon(icono);//
 			}
 		});
 		lblCreditos.addMouseListener(new MouseAdapter() {
