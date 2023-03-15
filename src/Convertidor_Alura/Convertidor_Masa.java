@@ -7,7 +7,7 @@ import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Objects;
-
+//aun pendiente
 public class Convertidor_Masa implements Utilitario_General {
 
     JFrame frmConvertidorAluralatan;

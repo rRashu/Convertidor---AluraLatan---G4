@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.WindowFocusListener;
 import java.awt.event.WindowEvent;
-
+//aun pendiente
 public class Realizado_Por implements Utilitario_General {
 
     JFrame frmConvertidorAluralatan;

@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
-
+//aun pendiente
 public class Principal implements Utilitario_General {
 
 	JFrame frmConvertidorAluralatan;
