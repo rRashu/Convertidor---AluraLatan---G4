@@ -84,7 +84,7 @@ if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
 
 <br>
 
-🕷 **Mala eleccion de colores:** Tanto la interfaz grafica como el resto de ventanas no me convense del todo, cuando tenga inspiracion mejorara.
+🕷 **Mala eleccion de colores:** ~~Tanto la interfaz grafica como el resto de ventanas no me convense del todo, cuando tenga inspiracion mejorara.~~
 
 ## `Corregido `
 
@@ -92,4 +92,4 @@ if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
 - [x] Validacion.
 - [x] Ventana sin memoria de retorno.
 - [ ] Codigo Muy sucio.
-- [ ] Mala Eleccion de colores.
+- [x] Mala Eleccion de colores.
