@@ -245,7 +245,7 @@ public class Convertidor_Moneda extends Operaciones_General implements Utilitari
 			}
 		});
 
-		comboBox2.addItemListener(e -> Asignar_icono_combo(comboBox2, lblMoneda2));
+		comboBox2.addItemListener(e -> Asignar_icono_combo_moneda(comboBox2, lblMoneda2));
 
 		lblmover.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
@@ -267,7 +267,7 @@ public class Convertidor_Moneda extends Operaciones_General implements Utilitari
 			}
 		});
 
-		comboBox.addItemListener(e -> Asignar_icono_combo(comboBox, lblMoneda1));
+		comboBox.addItemListener(e -> Asignar_icono_combo_moneda(comboBox, lblMoneda1));
 
 		lblSalir.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override

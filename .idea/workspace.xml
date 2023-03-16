@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="877ad93b-4eae-4e8b-a674-1541438bb2f5" name="Changes" comment="Eliminando redundancia de codigo">
+    <list default="true" id="877ad93b-4eae-4e8b-a674-1541438bb2f5" name="Changes" comment="Corregido metodo mover en moneda y masa, Posiblemente finalizado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Convertidor_Masa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Convertidor_Masa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Convertidor_Moneda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Convertidor_Moneda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Realizado_Por.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Realizado_Por.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Convertidor_Alura/Operaciones_General.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Convertidor_Alura/Operaciones_General.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678934222696</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Corregido metodo mover en moneda y masa, Posiblemente finalizado">
+      <created>1678992624311</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1678992624311</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -313,6 +319,17 @@
     </option>
     <option name="RECENT_FILTERS">
       <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
         <entry key="User">
           <value>
             <list>
@@ -341,7 +358,8 @@
     <MESSAGE value="resolver" />
     <MESSAGE value="Terminado parte de diseño" />
     <MESSAGE value="Eliminando redundancia de codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eliminando redundancia de codigo" />
+    <MESSAGE value="Corregido metodo mover en moneda y masa, Posiblemente finalizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corregido metodo mover en moneda y masa, Posiblemente finalizado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
