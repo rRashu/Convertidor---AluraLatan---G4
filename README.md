@@ -102,7 +102,25 @@ if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
 
 ## Autor
 
-[<img src="https://avatars.githubusercontent.com/u/94420600?v=4" width=115><br><sub>Robinson Rezabala</sub>](https://github.com/rRashu) 
+[<img src="https://avatars.githubusercontent.com/u/94420600?v=4" width=115><br><sub>Robinson Rezabala</sub>](https://github.com/rRashu)
+
+<br>
 
 <code><strong>Si tiene en mente alguna mejora del programa o que considere que falta algo no dude a escribir.</strong></code>
+
+<br>
+
+<a href="https://www.linkedin.com/in/robin-rezabala-b272b8207/">
+  <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" width=50>
+</a>
+
+
+<a href="mailto:rrrr@gmail.com">
+  <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x.png" width=140>
+</a>
+
+
+
+
+
  
