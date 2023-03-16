@@ -11,7 +11,6 @@ import java.util.Objects;
 public class Convertidor_Moneda extends Operaciones_General implements Utilitario_General {
 
 	JFrame frmConvertidorAluralatan;
-	int xOffset, yOffset;
 	Realizado_Por realizado = new Realizado_Por();
 
 	public Convertidor_Moneda () {

@@ -95,6 +95,7 @@ public class Principal extends Operaciones_General implements Utilitario_General
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				frmConvertidorAluralatan.setVisible(false);
+
 				moneda.frmConvertidorAluralatan.setVisible(true);
 			}
 		});
@@ -168,7 +169,9 @@ public class Principal extends Operaciones_General implements Utilitario_General
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				realizado.frmConvertidorAluralatan.setVisible(true);				
+				realizado.frmConvertidorAluralatan.setAlwaysOnTop(true);
+
+				realizado.frmConvertidorAluralatan.setVisible(true);
 			}
 		});
 		lblCreditos.setToolTipText("Realizado por.");

@@ -25,11 +25,12 @@ public class Realizado_Por extends Operaciones_General implements Utilitario_Gen
             }
 
             public void windowLostFocus (WindowEvent e) {
-                frmConvertidorAluralatan.setVisible(false);
+               frmConvertidorAluralatan.setVisible(false);
             }
         });
         frmConvertidorAluralatan.setTitle("Convertidor - AluraLatan");
         frmConvertidorAluralatan.setBounds(100, 100, 315, 354);
+        frmConvertidorAluralatan.setAlwaysOnTop(true);
         Operaciones_formulario(frmConvertidorAluralatan);
 
         JLabel lblSalir = new JLabel("");
