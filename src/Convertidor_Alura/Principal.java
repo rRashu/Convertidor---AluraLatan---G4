@@ -5,35 +5,22 @@ import java.awt.*;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
-public class Principal implements Utilitario_General {
+public class Principal extends Operaciones_General implements Utilitario_General {
 
 	JFrame frmConvertidorAluralatan;
-	int xOffset,yOffset;
+
 	Realizado_Por realizado = new Realizado_Por();
 	Convertidor_Moneda moneda = new Convertidor_Moneda();
 	Convertidor_Masa masa = new Convertidor_Masa();
-	
 	public Principal() {
 		initialize();
-		
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	void initialize() {
 		frmConvertidorAluralatan = new JFrame();
-		frmConvertidorAluralatan.setTitle("Creditos - AluraLatan");
 		frmConvertidorAluralatan.setBounds(100, 100, 315, 181);
-		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmConvertidorAluralatan.getContentPane().setLayout(null);
-		frmConvertidorAluralatan.setResizable(false);
-		frmConvertidorAluralatan.setLocationRelativeTo(null);  //centra la ventana
-		frmConvertidorAluralatan.setUndecorated(true);         //efecto de trasparencia unido con el color de fondo
-		frmConvertidorAluralatan.setBackground(FondoVentana); // color de fondo de la ventana
-		ImageIcon iconoAlura = new ImageIcon("Imagenes/Alura.png");
-		frmConvertidorAluralatan.setIconImage(iconoAlura.getImage());
-		
+		Operaciones_formulario(frmConvertidorAluralatan);
+
 		JLabel lblSalir = new JLabel("");
 		lblSalir.setToolTipText("Salir");
 		lblSalir.addMouseListener(new MouseAdapter() {
@@ -68,11 +55,8 @@ public class Principal implements Utilitario_General {
 		lblmover.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent e) {
-				int x = frmConvertidorAluralatan.getLocation().x;
-		        int y = frmConvertidorAluralatan.getLocation().y;
-		        frmConvertidorAluralatan.setLocation(x + e.getX() - xOffset, y + e.getY() - yOffset);
-		        frmConvertidorAluralatan.setLocation(x + e.getX() - xOffset, y + e.getY() - yOffset);
-			}
+				mover(frmConvertidorAluralatan,e);
+				}
 		});
 		
 		lblmover.addMouseListener(new MouseAdapter() {
@@ -201,4 +185,3 @@ public class Principal implements Utilitario_General {
 		frmConvertidorAluralatan.getContentPane().add(lblNewLabel_2_1_1);
 	}
 }
-//ahora

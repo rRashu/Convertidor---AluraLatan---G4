@@ -2,7 +2,7 @@ package Convertidor_Alura;
 
 import java.awt.*;
 
-public interface Utilitario_General {
+interface Utilitario_General {
 	Color FondoVentana = new Color(120, 47, 189, 200);
 	Color Etiquetas_titulos = new Color(255, 215, 0);
 	Color Combo_Box = new Color(255, 255, 255);

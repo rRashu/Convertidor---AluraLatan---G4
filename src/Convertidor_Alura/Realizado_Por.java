@@ -1,20 +1,12 @@
 package Convertidor_Alura;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.WindowFocusListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
-public class Realizado_Por implements Utilitario_General {
+public class Realizado_Por extends Operaciones_General implements Utilitario_General {
 
     JFrame frmConvertidorAluralatan;
 
@@ -38,46 +30,26 @@ public class Realizado_Por implements Utilitario_General {
         });
         frmConvertidorAluralatan.setTitle("Convertidor - AluraLatan");
         frmConvertidorAluralatan.setBounds(100, 100, 315, 354);
-        frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frmConvertidorAluralatan.getContentPane().setLayout(null);
-        frmConvertidorAluralatan.setResizable(false);
-        frmConvertidorAluralatan.setLocationRelativeTo(null); // centra la ventana
-        frmConvertidorAluralatan.setUndecorated(true); // efecto de trasparencia unido con el color de fondo
-        frmConvertidorAluralatan.setBackground(FondoVentana); // color de fondo de la ventana
-        ImageIcon iconoAlura = new ImageIcon("Imagenes/Alura.png");
-        frmConvertidorAluralatan.setIconImage(iconoAlura.getImage());
+        Operaciones_formulario(frmConvertidorAluralatan);
 
         JLabel lblSalir = new JLabel("");
         lblSalir.setToolTipText("Volver");
         lblSalir.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseExited (MouseEvent e) {
-                ImageIcon im = new ImageIcon("Imagenes/volver-color.png");
-                Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(),
-                        Image.SCALE_DEFAULT));
-                lblSalir.setIcon(icono);
+               volverc(lblSalir);
             }
-
+            @Override
+            public void mouseEntered (MouseEvent e) {
+                volver(lblSalir);
+            }
             @Override
             public void mouseClicked (MouseEvent e) {
                 frmConvertidorAluralatan.setVisible(false);
             }
         });
-        lblSalir.addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseMoved (MouseEvent e) {
-                ImageIcon im = new ImageIcon("Imagenes/volver.png");
-                Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(),
-                        Image.SCALE_DEFAULT));
-                lblSalir.setIcon(icono);
-            }
-        });
-
         lblSalir.setBounds(272, 11, 33, 41);
-        ImageIcon im = new ImageIcon("Imagenes/volver-color.png");
-        Icon icono = new ImageIcon(
-                im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(), Image.SCALE_DEFAULT));
-        lblSalir.setIcon(icono);
+        lblSalir.setIcon(volverc(lblSalir));
         frmConvertidorAluralatan.getContentPane().add(lblSalir);
 
         JLabel lblNewLabel_2 = new JLabel("Alura");

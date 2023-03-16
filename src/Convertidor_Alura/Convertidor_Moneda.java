@@ -7,7 +7,8 @@ import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Objects;
-public class Convertidor_Moneda implements Utilitario_General {
+
+public class Convertidor_Moneda extends Operaciones_General implements Utilitario_General {
 
 	JFrame frmConvertidorAluralatan;
 	int xOffset, yOffset;
@@ -22,14 +23,7 @@ public class Convertidor_Moneda implements Utilitario_General {
 		frmConvertidorAluralatan = new JFrame();
 		frmConvertidorAluralatan.setTitle("Convertidor de Monedas - AluraLatam");
 		frmConvertidorAluralatan.setBounds(100, 100, 622, 300);
-		frmConvertidorAluralatan.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmConvertidorAluralatan.getContentPane().setLayout(null);
-		frmConvertidorAluralatan.setResizable(false);
-		frmConvertidorAluralatan.setLocationRelativeTo(null); // centra la ventana
-		frmConvertidorAluralatan.setUndecorated(true); // efecto de trasparencia unido con el color de fondo
-		frmConvertidorAluralatan.setBackground(FondoVentana); // color de fondo de la ventana
-		ImageIcon iconoAlura = new ImageIcon("Imagenes/Alura.png");
-		frmConvertidorAluralatan.setIconImage(iconoAlura.getImage());
+		Operaciones_formulario(frmConvertidorAluralatan);
 
 		JLabel lblSalir = new JLabel("");
 		lblSalir.setToolTipText("Volver");
@@ -241,10 +235,7 @@ public class Convertidor_Moneda implements Utilitario_General {
 		lblSalir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseExited(MouseEvent e) {
-				ImageIcon im = new ImageIcon("Imagenes/volver-color.png");
-				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(),
-						Image.SCALE_DEFAULT));
-				lblSalir.setIcon(icono);
+				volverc(lblSalir);
 			}
 
 			@Override
@@ -255,29 +246,12 @@ public class Convertidor_Moneda implements Utilitario_General {
 			}
 		});
 
-		comboBox2.addItemListener(e -> {
-			if (comboBox2.getSelectedIndex() == 0) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Peso.png"));
-			} else if (comboBox2.getSelectedIndex() == 1) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Dolar.png"));
-			} else if (comboBox2.getSelectedIndex() == 2) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Euro.png"));
-			} else if (comboBox2.getSelectedIndex() == 3) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Libra.png"));
-			} else if (comboBox2.getSelectedIndex() == 4) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Yen.png"));
-			} else if (comboBox2.getSelectedIndex() == 5) {
-				lblMoneda2.setIcon(setIcono("Imagenes/Won.png"));
-			}
-		});
+		comboBox2.addItemListener(e -> Asignar_icono_combo(comboBox2, lblMoneda2));
 
 		lblmover.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent e) {
-				int x = frmConvertidorAluralatan.getLocation().x;
-				int y = frmConvertidorAluralatan.getLocation().y;
-				frmConvertidorAluralatan.setLocation(x + e.getX() - xOffset, y + e.getY() - yOffset);
-				frmConvertidorAluralatan.setLocation(x + e.getX() - xOffset, y + e.getY() - yOffset);
+				mover(frmConvertidorAluralatan,e);
 			}
 		});
 
@@ -294,40 +268,15 @@ public class Convertidor_Moneda implements Utilitario_General {
 			}
 		});
 
-		comboBox.addItemListener(e -> {
-
-			if (comboBox.getSelectedIndex() == 0) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Peso.png"));
-			} else if (comboBox.getSelectedIndex() == 1) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Dolar.png"));
-			} else if (comboBox.getSelectedIndex() == 2) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Euro.png"));
-			} else if (comboBox.getSelectedIndex() == 3) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Libra.png"));
-			} else if (comboBox.getSelectedIndex() == 4) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Yen.png"));
-			} else if (comboBox.getSelectedIndex() == 5) {
-				lblMoneda1.setIcon(setIcono("Imagenes/Won.png"));
-			}
-		});
+		comboBox.addItemListener(e -> Asignar_icono_combo(comboBox, lblMoneda1));
 
 		lblSalir.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				ImageIcon im = new ImageIcon("Imagenes/volver.png");
-				Icon icono = new ImageIcon(im.getImage().getScaledInstance(lblSalir.getWidth(), lblSalir.getHeight(),
-						Image.SCALE_DEFAULT));
-				lblSalir.setIcon(icono);
+				volver(lblSalir);
 			}
 		});
 
-	}
-
-	// clases apartes
-
-	public Icon setIcono(String ruta) {
-		ImageIcon im = new ImageIcon(ruta);
-		return new ImageIcon(im.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 	}
 
 	public String calculo(String cmb1, String cmb2, double monto) {
