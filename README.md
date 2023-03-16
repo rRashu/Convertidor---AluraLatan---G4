@@ -5,7 +5,8 @@
 
 Este mini sistema fue creado como parte del proceso de aprendizaje en los cursos de aluraLatan 
 
-![msedge_VcvufDeSaE](https://user-images.githubusercontent.com/94420600/224590485-c5490363-ff3d-4e08-837a-422742d0bd49.jpg)
+![idea64_wiIWS5Z9Bn](https://user-images.githubusercontent.com/94420600/225733094-997b8e78-fc97-4195-9215-cbaf71b160f0.jpg)
+
 
 <hr>
 <hr>
@@ -14,7 +15,8 @@ Este mini sistema fue creado como parte del proceso de aprendizaje en los cursos
 
 El funcionamiento es simple en la ventana principal tan solo elegimos ya sea el dibujo del dinero para el convertidor de moneda o el de la balanza para el convertidor de peso como se muestra acontinuacion 
 
-![tFW903D3bB](https://user-images.githubusercontent.com/94420600/224590022-9fb501ec-cdae-4246-af7b-a53a60dd0350.gif)
+![idea64_QOqcZlIh1o](https://user-images.githubusercontent.com/94420600/225733346-a4077167-4d71-48a0-9879-93b2436093c8.gif)
+
 
 
 - Para Regresar o Ver informacion sobre el autor tan solo damos click en el dibujo de la persona ubicado en la parte inferior izquierda de todas las ventanas 
@@ -79,7 +81,7 @@ if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
  
  <hr>
 
-🕷 **Codigo muy sucio:** Falta mucha optimizacion que se ira implementando de a poco hasta obtener algo mas limpio.
+🕷 **Codigo muy sucio:** ~~Falta mucha optimizacion que se ira implementando de a poco hasta obtener algo mas limpio.~~
 
 
 <br>
@@ -91,5 +93,16 @@ if ((textmoneda2.getText().length() == 10) | Character.isLetter(validar)
 
 - [x] Validacion.
 - [x] Ventana sin memoria de retorno.
-- [ ] Codigo Muy sucio.
+- [x] Codigo Muy sucio.
 - [x] Mala Eleccion de colores.
+
+<br>
+<hr>
+<hr>
+
+## Autor
+
+[<img src="https://avatars.githubusercontent.com/u/94420600?v=4" width=115><br><sub>Robinson Rezabala</sub>](https://github.com/rRashu) 
+
+<code><strong>Si tiene en mente alguna mejora del programa o que considere que falta algo no dude a escribir.</strong></code>
+ 
